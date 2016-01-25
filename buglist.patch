@@ -1,0 +1,13 @@
+*** buglist.cgi.orig	Sun Mar  2 21:55:58 2014
+--- buglist.cgi	Mon Mar  3 22:01:41 2014
+***************
+*** 1134,1139 ****
+--- 1134,1141 ----
+  
+  _close_standby_message($contenttype, $disposition, $serverpush);
+  
++ Bugzilla::Hook::process('buglist_before_template', { vars => $vars });
++ 
+  ################################################################################
+  # Content Generation
+  ################################################################################

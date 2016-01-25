@@ -1,0 +1,32 @@
+--- extensions/DilbertQuips/template/en/default/list/list.html.tmpl.orig	2012-09-19 16:54:54.921796338 +0300
++++ extensions/DilbertQuips/template/en/default/list/list.html.tmpl	2014-08-26 20:08:30.687459458 +0300
+@@ -65,10 +65,25 @@
+   [% END %]
+ 
+   [% IF user.settings.display_quips.value == 'on' %]
+-    [% DEFAULT quip = "$terms.Bugzilla would like to put a random quip here, but no one has entered any." %]
+-    <span class="bz_quip">
+-      <a href="quips.cgi"><i>[% quip FILTER html %]</i></a>
+-    </span>
++    [% IF user.in_group('daily_dilbert') %]
++      <span class="bz_quip">
++        <table align="center">
++          <tr><td style="text-align:center;">
++            <a href=[% quip_dilbert_url %] target="_blank" >
++              <img src=[% quip_dilbert_url %] title=[% quip_dilbert_date %] height="150" style="width: auto" />
++            </a>
++          </td></tr>
++          <tr><td style="text-align:center;">
++            <a href="mailto:?subject=Check out this Dilbert&body=[% quip_dilbert_url %]" target="_blank">tell a friend</a>
++          </td></tr>
++        </table>
++      </span>
++    [% ELSE %]
++      [% DEFAULT quip = "$terms.Bugzilla would like to put a random quip here, but no one has entered any." %]
++      <span class="bz_quip">
++        <a href="quips.cgi"><i>[% quip FILTER html %]</i></a>
++      </span>
++    [% END %]
+   [% END %]
+ 
+ </div>
