@@ -1,16 +1,16 @@
 # DilbertQuips
+
 Replace the "quips" feature in Bugzilla with random Dilbert cartoons
 
 # Installation
 
 (1) Extract archive in <BUGZILLA>/extensions
 
-    e.g. 
-         /var/www/localhost/htdocs/bugzilla/extensions/
+    e.g. /var/www/localhost/htdocs/bugzilla/extensions/
 
 (2) Apply patch to 'buglist.cgi'
 
-        patch < extensions/DilbertQuips/buglist.patch
+    patch < extensions/DilbertQuips/buglist.patch
 
     This introduces a new 'Hook', since I could not find 
     one I can use.
@@ -25,8 +25,8 @@ Replace the "quips" feature in Bugzilla with random Dilbert cartoons
 
 (3) Run ./checksetup.pl
 
-    (3a) I hope the REQUIRED_MODULES in 'Config.pm' are 
-         correct...
+  (3a) I hope the REQUIRED_MODULES in 'Config.pm' are 
+       correct...
 
 (4) Make sure the permissions are correct. This one got me...
 
